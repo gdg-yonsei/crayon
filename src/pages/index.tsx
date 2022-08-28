@@ -1,3 +1,4 @@
+import Config from '@components/Config';
 import Header from '@components/Header';
 import Menu from '@components/Menu';
 import type { NextPage } from 'next';
@@ -10,7 +11,7 @@ const Home: NextPage = () => {
       <Content>
         <Menu />
         <List></List>
-        <Menu />
+        <Config />
       </Content>
     </Wrapper>
   );
