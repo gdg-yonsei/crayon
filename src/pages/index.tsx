@@ -1,7 +1,10 @@
 import type { NextPage } from 'next';
+import styled from 'styled-components';
 
 const Home: NextPage = () => {
-  return <div>Crayon</div>;
+  return <Wrapper>Crayon</Wrapper>;
 };
 
 export default Home;
+
+const Wrapper = styled.div``;
