@@ -5,7 +5,7 @@ import PostItem from '@components/PostItem';
 import type { NextPage } from 'next';
 import styled from 'styled-components';
 
-const Home: NextPage = () => {
+const IndexPage: NextPage = () => {
   return (
     <Wrapper>
       <Header />
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default IndexPage;
 
 const Wrapper = styled.div``;
 
