@@ -1,6 +1,6 @@
 # Crayon
 
-Blog template for GDSC Yonsei Sinchon Campus
+A powerful blog generator
 
 ## How to use
 
