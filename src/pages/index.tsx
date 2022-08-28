@@ -1,8 +1,13 @@
+import Header from '@components/Header';
 import type { NextPage } from 'next';
 import styled from 'styled-components';
 
 const Home: NextPage = () => {
-  return <Wrapper>Crayon</Wrapper>;
+  return (
+    <Wrapper>
+      <Header />
+    </Wrapper>
+  );
 };
 
 export default Home;
