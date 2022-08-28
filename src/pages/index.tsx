@@ -1,6 +1,7 @@
 import Config from '@components/Config';
 import Header from '@components/Header';
 import Menu from '@components/Menu';
+import PostItem from '@components/PostItem';
 import type { NextPage } from 'next';
 import styled from 'styled-components';
 
@@ -10,7 +11,14 @@ const Home: NextPage = () => {
       <Header />
       <Content>
         <Menu />
-        <List></List>
+        <List>
+          <PostItem />
+          <PostItem />
+          <PostItem />
+          <PostItem />
+          <PostItem />
+          <PostItem />
+        </List>
         <Config />
       </Content>
     </Wrapper>
@@ -28,4 +36,8 @@ const Content = styled.div`
 
 const List = styled.div`
   width: 600px;
+
+  > :not(:first-child) {
+    margin-top: 16px;
+  }
 `;
