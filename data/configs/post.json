@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Sample Post 1",
+    "id": "sample-post-1",
+    "date": "2022-08-30",
+    "category": "Default",
+    "tags": ["Tag1", "Tag2"]
+  },
+  {
+    "title": "Sample Post 2",
+    "id": "sample-post-2",
+    "date": "2022-08-30",
+    "category": "Default",
+    "tags": ["Tag1", "Tag2"]
+  }
+]

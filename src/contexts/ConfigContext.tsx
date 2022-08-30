@@ -1,4 +1,4 @@
-import config from 'data/config.json';
+import config from 'data/configs/site.json';
 import { createContext, PropsWithChildren, useContext } from 'react';
 
 /**
