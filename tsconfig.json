@@ -5,8 +5,10 @@
       "@public/*": ["public/*"],
       "@components/*": ["src/components/*"],
       "@contexts/*": ["src/contexts/*"],
+      "@interfaces/*": ["src/interfaces/*"],
       "@pages/*": ["src/pages/*"],
-      "@styles/*": ["src/styles/*"]
+      "@styles/*": ["src/styles/*"],
+      "@utils/*": ["src/utils/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
