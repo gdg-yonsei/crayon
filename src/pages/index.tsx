@@ -4,14 +4,14 @@ import Menu from '@components/Menu';
 import PostItem from '@components/PostItem';
 import { Post } from '@interfaces/post';
 import { get } from '@utils/fetch';
-import type { GetServerSideProps } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import styled from 'styled-components';
 
 interface Props {
   posts: Post[];
 }
 
-const IndexPage = ({ posts }: Props) => {
+const IndexPage: NextPage<Props> = ({ posts }) => {
   return (
     <Wrapper>
       <Header />

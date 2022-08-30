@@ -1,20 +1,24 @@
+import Anchor from '@components/Anchor';
 import { Post } from '@interfaces/post';
+import { ComponentType } from 'react';
 import styled from 'styled-components';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Props extends Post {}
 
-const PostItem = ({ title, date, tags }: Props) => {
+const PostItem: ComponentType<Props> = ({ id, title, date, tags }) => {
   return (
-    <Wrapper>
-      <Title>{title}</Title>
-      <Meta>{date}</Meta>
-      <TagContainer>
-        {tags.map((tag) => (
-          <Tag key={tag}>#{tag}</Tag>
-        ))}
-      </TagContainer>
-    </Wrapper>
+    <Anchor href={`/post/${id}`} block>
+      <Wrapper>
+        <Title>{title}</Title>
+        <Meta>{date}</Meta>
+        <TagContainer>
+          {tags.map((tag) => (
+            <Tag key={tag}>#{tag}</Tag>
+          ))}
+        </TagContainer>
+      </Wrapper>
+    </Anchor>
   );
 };
 
