@@ -1,14 +1,18 @@
+import { Post } from '@interfaces/post';
 import styled from 'styled-components';
 
-const PostItem = () => {
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface Props extends Post {}
+
+const PostItem = ({ title, date, tags }: Props) => {
   return (
     <Wrapper>
-      <Title>포스트 제목</Title>
-      <Meta>2022-08-29</Meta>
+      <Title>{title}</Title>
+      <Meta>{date}</Meta>
       <TagContainer>
-        <Tag># 태그1</Tag>
-        <Tag># 태그2</Tag>
-        <Tag># 태그3</Tag>
+        {tags.map((tag) => (
+          <Tag key={tag}>#{tag}</Tag>
+        ))}
       </TagContainer>
     </Wrapper>
   );

@@ -2,22 +2,25 @@ import Config from '@components/Config';
 import Header from '@components/Header';
 import Menu from '@components/Menu';
 import PostItem from '@components/PostItem';
-import type { NextPage } from 'next';
+import { Post } from '@interfaces/post';
+import { get } from '@utils/fetch';
+import type { GetServerSideProps } from 'next';
 import styled from 'styled-components';
 
-const IndexPage: NextPage = () => {
+interface Props {
+  posts: Post[];
+}
+
+const IndexPage = ({ posts }: Props) => {
   return (
     <Wrapper>
       <Header />
       <Content>
         <Menu />
         <List>
-          <PostItem />
-          <PostItem />
-          <PostItem />
-          <PostItem />
-          <PostItem />
-          <PostItem />
+          {posts.map((post) => (
+            <PostItem key={post.id} {...post} />
+          ))}
         </List>
         <Config />
       </Content>
@@ -26,6 +29,20 @@ const IndexPage: NextPage = () => {
 };
 
 export default IndexPage;
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  try {
+    const posts = await get<Post[]>('/posts');
+
+    return {
+      props: { posts },
+    };
+  } catch {
+    return {
+      props: { posts: [] },
+    };
+  }
+};
 
 const Wrapper = styled.div``;
 

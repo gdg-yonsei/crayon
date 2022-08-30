@@ -17,7 +17,11 @@ export default async function handler(
     return res.status(404).json({ message: 'Post not found' });
   }
 
-  const content = await local(`/data/posts/${post.id}/content.md`);
+  try {
+    const content = await local(`/data/posts/${post.id}/content.md`);
 
-  res.status(200).json({ ...post, content });
+    res.status(200).json({ ...post, content });
+  } catch {
+    res.status(404).json({ message: 'Post not found' });
+  }
 }
