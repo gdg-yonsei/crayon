@@ -1,7 +1,5 @@
-import Config from '@components/Config';
-import Header from '@components/Header';
-import Menu from '@components/Menu';
-import PostItem from '@components/PostItem';
+import Template from '@components/common/Template';
+import PostItem from '@components/index/PostItem';
 import { Post } from '@interfaces/post';
 import { get } from '@utils/fetch';
 import type { GetServerSideProps, NextPage } from 'next';
@@ -13,18 +11,13 @@ interface Props {
 
 const IndexPage: NextPage<Props> = ({ posts }) => {
   return (
-    <Wrapper>
-      <Header />
-      <Content>
-        <Menu />
-        <List>
-          {posts.map((post) => (
-            <PostItem key={post.id} {...post} />
-          ))}
-        </List>
-        <Config />
-      </Content>
-    </Wrapper>
+    <Template>
+      <PostList>
+        {posts.map((post) => (
+          <PostItem key={post.id} {...post} />
+        ))}
+      </PostList>
+    </Template>
   );
 };
 
@@ -44,16 +37,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
   }
 };
 
-const Wrapper = styled.div``;
-
-const Content = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-const List = styled.div`
-  width: 600px;
-
+const PostList = styled.div`
   > :not(:first-child) {
     margin-top: 16px;
   }

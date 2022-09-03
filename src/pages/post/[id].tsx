@@ -1,4 +1,3 @@
-import Header from '@components/Header';
 import { PostWithContent } from '@interfaces/post';
 import { get } from '@utils/fetch';
 import type { GetServerSideProps, NextPage } from 'next';
@@ -10,7 +9,6 @@ interface Props extends PostWithContent {}
 const PostPage: NextPage<Props> = ({ content }) => {
   return (
     <Wrapper>
-      <Header />
       <Content>{content}</Content>
     </Wrapper>
   );

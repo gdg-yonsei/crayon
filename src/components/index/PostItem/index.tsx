@@ -1,4 +1,4 @@
-import Anchor from '@components/Anchor';
+import Anchor from '@components/common/Anchor';
 import { Post } from '@interfaces/post';
 import { ComponentType } from 'react';
 import styled from 'styled-components';
@@ -27,14 +27,14 @@ export default PostItem;
 const Wrapper = styled.div`
   padding: 20px;
 
-  --box-shadow-color: #eeeeee;
+  --shadow-color: #eeeeee;
   background-color: white;
-  box-shadow: 0 0 20px var(--box-shadow-color);
+  box-shadow: 0 0 20px var(--shadow-color);
 
   transition: box-shadow ease 0.3s;
 
   :hover {
-    --box-shadow-color: lightgray;
+    --shadow-color: lightgray;
   }
 `;
 
