@@ -46,4 +46,8 @@ const Content = styled.div`
   max-width: 900px;
   margin: 0 auto;
   padding: 200px 30px 30px;
+
+  @media (max-width: 1240px) {
+    padding-top: 250px;
+  }
 `;

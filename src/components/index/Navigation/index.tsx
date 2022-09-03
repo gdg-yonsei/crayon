@@ -32,7 +32,11 @@ const Wrapper = styled.aside`
   width: 150px;
 
   > :not(:first-child) {
-    margin-top: 16px;
+    margin: 16px 0 0 0;
+
+    @media (max-width: 1240px) {
+      margin: 0 0 0 16px;
+    }
   }
 `;
 
@@ -47,5 +51,9 @@ const Text = styled.a<{ active?: boolean }>`
 
   :hover {
     opacity: 1;
+  }
+
+  @media (max-width: 1240px) {
+    display: inline;
   }
 `;
