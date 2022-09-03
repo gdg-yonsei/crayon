@@ -8,5 +8,7 @@ export default function handler(
   _: NextApiRequest,
   res: NextApiResponse<Response>,
 ) {
-  res.status(200).json(posts);
+  const blogPosts = posts.filter((post) => !post.id.startsWith('_'));
+
+  res.status(200).json(blogPosts);
 }

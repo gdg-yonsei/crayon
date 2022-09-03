@@ -7,8 +7,6 @@ const Navigation = () => {
 
   const currentPage = router.pathname;
 
-  console.log(currentPage);
-
   return (
     <Wrapper>
       <Text href={aboutUrl} active={currentPage === aboutUrl}>
