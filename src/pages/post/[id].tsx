@@ -1,3 +1,4 @@
+import useVisibility from '@hooks/useVisibility';
 import { PostWithContent } from '@interfaces/post';
 import { get } from '@utils/fetch';
 import type { GetServerSideProps, NextPage } from 'next';
@@ -7,10 +8,14 @@ import styled from 'styled-components';
 interface Props extends PostWithContent {}
 
 const PostPage: NextPage<Props> = ({ title, date, tags, content }) => {
+  const { ref, isVisible: isHeaderVisible } = useVisibility(true, 0.3);
+
   return (
     <Wrapper>
-      <Background />
-      <Header>
+      <MiniHeader $show={!isHeaderVisible}>
+        <MiniTitle>{title}</MiniTitle>
+      </MiniHeader>
+      <Header ref={ref}>
         <Title>{title}</Title>
         <Date>{date}</Date>
         <TagContainer>
@@ -46,17 +51,26 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 
 const Wrapper = styled.div``;
 
-const Background = styled.div`
+const MiniHeader = styled.div<{ $show: boolean }>`
   position: fixed;
-  top: -300px;
-  left: -300px;
+  top: ${({ $show }) => ($show ? '0' : '-80px')};
+  left: 0;
 
-  width: 600px;
-  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
 
-  transform: rotate(45deg);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid #00000010;
 
-  background-color: lightblue;
+  transition: top ease 0.3s;
+`;
+
+const MiniTitle = styled.p`
+  text-align: center;
+  font-size: 20px;
 `;
 
 const Header = styled.div`

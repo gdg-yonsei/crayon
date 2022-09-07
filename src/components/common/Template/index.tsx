@@ -50,4 +50,6 @@ const Content = styled.div`
   @media (max-width: 1240px) {
     padding-top: 250px;
   }
+
+  transition: padding-top ease 0.5s;
 `;
