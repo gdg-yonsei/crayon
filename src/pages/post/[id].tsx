@@ -2,6 +2,9 @@ import useVisibility from '@hooks/useVisibility';
 import { PostWithContent } from '@interfaces/post';
 import { get } from '@utils/fetch';
 import type { GetServerSideProps, NextPage } from 'next';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 import styled from 'styled-components';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -24,7 +27,11 @@ const PostPage: NextPage<Props> = ({ title, date, tags, content }) => {
           ))}
         </TagContainer>
       </Header>
-      <Content>{content}</Content>
+      <Content>
+        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+          {content}
+        </ReactMarkdown>
+      </Content>
     </Wrapper>
   );
 };
@@ -109,7 +116,7 @@ const Tag = styled.span`
 
 const Content = styled.div`
   max-width: 600px;
-  min-height: 100vh;
+  min-height: calc(100vh - 110px);
   margin: 0 auto;
   padding: 0 20px;
 `;
