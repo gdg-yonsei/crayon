@@ -1,3 +1,4 @@
+import mdComponents from '@data/mdComponents';
 import useVisibility from '@hooks/useVisibility';
 import { PostWithContent } from '@interfaces/post';
 import { get } from '@utils/fetch';
@@ -28,7 +29,11 @@ const PostPage: NextPage<Props> = ({ title, date, tags, content }) => {
         </TagContainer>
       </Header>
       <Content>
-        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+        <ReactMarkdown
+          components={mdComponents}
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw]}
+        >
           {content}
         </ReactMarkdown>
       </Content>
@@ -71,6 +76,8 @@ const MiniHeader = styled.div<{ $show: boolean }>`
 
   backdrop-filter: blur(20px);
   border-bottom: 1px solid #00000010;
+
+  z-index: 10;
 
   transition: top ease 0.3s;
 `;
@@ -115,7 +122,7 @@ const Tag = styled.span`
 `;
 
 const Content = styled.div`
-  max-width: 600px;
+  max-width: 800px;
   min-height: calc(100vh - 110px);
   margin: 0 auto;
   padding: 0 20px;

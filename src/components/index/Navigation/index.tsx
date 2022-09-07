@@ -1,5 +1,5 @@
+import { aboutUrl, categoryUrl, indexUrl } from '@data/urls';
 import { useRouter } from 'next/router';
-import { aboutUrl, categoryUrl, indexUrl } from 'src/data/urls';
 import styled from 'styled-components';
 
 const Navigation = () => {

@@ -5,6 +5,7 @@
       "@public/*": ["public/*"],
       "@components/*": ["src/components/*"],
       "@contexts/*": ["src/contexts/*"],
+      "@data/*": ["src/data/*"],
       "@hooks/*": ["src/hooks/*"],
       "@interfaces/*": ["src/interfaces/*"],
       "@pages/*": ["src/pages/*"],
