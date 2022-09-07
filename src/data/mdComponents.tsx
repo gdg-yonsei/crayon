@@ -42,6 +42,9 @@ const mdComponents: Partial<MarkdownComponents> = {
       </code>
     );
   },
+  hr: (props: any) => {
+    return <Line {...props} />;
+  },
 };
 
 export default mdComponents;
@@ -53,11 +56,13 @@ const Heading1 = styled.h1`
   font-size: 2rem;
 
   ::after {
-    content: '#';
+    content: '';
     position: absolute;
     top: 0;
-    left: -20px;
-    font-size: 20px;
+    left: -15px;
+    width: 4px;
+    height: 100%;
+    background-color: lightblue;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -103,4 +108,9 @@ const Anchor = styled.a`
   &:hover {
     color: hsla(217, 100%, 30%);
   }
+`;
+
+const Line = styled.hr`
+  margin: 20px 0;
+  border: 1px solid #00000010;
 `;

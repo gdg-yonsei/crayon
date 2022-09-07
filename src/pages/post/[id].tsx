@@ -125,5 +125,5 @@ const Content = styled.div`
   max-width: 800px;
   min-height: calc(100vh - 110px);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 50px 20px;
 `;
