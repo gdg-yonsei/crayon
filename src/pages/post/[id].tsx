@@ -16,6 +16,8 @@ const PostPage: NextPage<Props> = ({ title, date, tags, content }) => {
 
   return (
     <Wrapper>
+      {/* Background */}
+      {/* Content */}
       <MiniHeader $show={!isHeaderVisible}>
         <MiniTitle>{title}</MiniTitle>
       </MiniHeader>

@@ -1,17 +1,26 @@
 import Template from '@components/common/Template';
+import mdComponents from '@data/mdComponents';
 import { PostWithContent } from '@interfaces/post';
 import { get } from '@utils/fetch';
 import type { GetServerSideProps, NextPage } from 'next';
-import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 interface Props {
   post: PostWithContent;
 }
 
-const AboutPage: NextPage<Props> = ({ post }) => {
+const AboutPage: NextPage<Props> = ({ post: { content } }) => {
   return (
     <Template>
-      <PostList>{post.content}</PostList>
+      <ReactMarkdown
+        components={mdComponents}
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
+      >
+        {content}
+      </ReactMarkdown>
     </Template>
   );
 };
@@ -34,9 +43,3 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
     };
   }
 };
-
-const PostList = styled.div`
-  > :not(:first-child) {
-    margin-top: 16px;
-  }
-`;
