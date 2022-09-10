@@ -1,34 +1,33 @@
 import mdComponents from '@data/mdComponents';
 import useVisibility from '@hooks/useVisibility';
 import { PostWithContent } from '@interfaces/post';
+import { gradientFlow } from '@styles/keyframes';
 import { get } from '@utils/fetch';
 import type { GetServerSideProps, NextPage } from 'next';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Props extends PostWithContent {}
 
 const PostPage: NextPage<Props> = ({ title, date, tags, content }) => {
-  const { ref, isVisible: isHeaderVisible } = useVisibility(true, 0.3);
+  const { ref, isVisible: isHeaderVisible } = useVisibility(true, 0);
 
   return (
     <Wrapper>
-      {/* Background */}
-      {/* Content */}
-      <MiniHeader $show={!isHeaderVisible}>
-        <MiniTitle>{title}</MiniTitle>
-      </MiniHeader>
-      <Header ref={ref}>
-        <Title>{title}</Title>
-        <Date>{date}</Date>
-        <TagContainer>
-          {tags.map((tag, index) => (
-            <Tag key={index}># {tag}</Tag>
-          ))}
-        </TagContainer>
+      <Header $trasparent={!isHeaderVisible}>
+        <HeaderContainer ref={ref}>
+          <Title>{title}</Title>
+          <Date>{date}</Date>
+          <TagContainer>
+            {tags.map((tag, index) => (
+              <Tag key={index}># {tag}</Tag>
+            ))}
+          </TagContainer>
+        </HeaderContainer>
+        <MiniHeader $show={!isHeaderVisible}>{title}</MiniHeader>
       </Header>
       <Content>
         <ReactMarkdown
@@ -65,36 +64,49 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 
 const Wrapper = styled.div``;
 
-const MiniHeader = styled.div<{ $show: boolean }>`
-  position: fixed;
-  top: ${({ $show }) => ($show ? '0' : '-80px')};
-  left: 0;
+const Header = styled.div<{ $trasparent: boolean }>`
+  position: sticky;
+  top: calc(calc(80px - 80vh));
+  height: 80vh;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 80px;
-
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid #00000010;
+  justify-content: flex-end;
+  align-items: center;
 
   z-index: 10;
 
-  transition: top ease 0.3s;
+  ::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(45deg, #0091ff, #00a555, #0091ff);
+    background-size: 300% 300%;
+    animation: ${gradientFlow} 10s ease infinite;
+
+    ${({ $trasparent }) =>
+      $trasparent &&
+      css`
+        opacity: 0;
+      `}
+
+    transition: opacity ease .3s;
+  }
 `;
 
-const MiniTitle = styled.p`
-  text-align: center;
-  font-size: 20px;
-`;
-
-const Header = styled.div`
+const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: flex-start;
 
-  height: 100vh;
+  width: 100%;
+  max-width: 800px;
+
+  z-index: 1;
 
   > :not(:first-child) {
     margin-top: 20px;
@@ -102,17 +114,17 @@ const Header = styled.div`
 `;
 
 const Title = styled.h1`
-  text-align: center;
   font-size: 40px;
+  color: white;
 `;
 
 const Date = styled.p`
-  text-align: center;
   font-size: 20px;
+  color: white;
 `;
 
 const TagContainer = styled.div`
-  text-align: center;
+  color: white;
 
   > :not(:first-child) {
     margin-left: 10px;
@@ -121,6 +133,25 @@ const TagContainer = styled.div`
 
 const Tag = styled.span`
   font-size: 17px;
+`;
+
+const MiniHeader = styled.p<{ $show: boolean }>`
+  width: 100%;
+  height: 80px;
+  margin-top: 20px;
+  padding: 0 20px;
+
+  font-size: 20px;
+  color: black;
+  text-align: center;
+  line-height: 80px;
+
+  ${({ $show }) =>
+    $show &&
+    css`
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid #00000010;
+    `}
 `;
 
 const Content = styled.div`
