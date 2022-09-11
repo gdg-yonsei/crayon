@@ -1,3 +1,12 @@
+---
+title: Sample Post 1
+date: 2022-08-30
+category: Sample Category 1
+tags:
+  - Sample Tag 1
+  - Sample Tag 2
+---
+
 이 게시물은 **테스트 게시물**입니다.
 
 # 부제목1

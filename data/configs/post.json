@@ -1,16 +1,1 @@
-[
-  {
-    "title": "Sample Post 1",
-    "id": "sample-post-1",
-    "date": "2022-08-30",
-    "category": "Default",
-    "tags": ["Tag1", "Tag2"]
-  },
-  {
-    "title": "Sample Post 2",
-    "id": "sample-post-2",
-    "date": "2022-08-30",
-    "category": "Default",
-    "tags": ["Tag1", "Tag2"]
-  }
-]
+[{"id":"sample-post-1","title":"Sample Post 1","date":"2022-08-30T00:00:00.000Z","category":"Sample Category 1","tags":["Sample Tag 1","Sample Tag 2"]},{"id":"sample-post-2","title":"Sample Post 2","date":"2022-08-30T00:00:00.000Z","category":"Sample Category 2","tags":["Sample Tag 2","Sample Tag 3"]}]
