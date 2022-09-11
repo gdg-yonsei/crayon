@@ -30,7 +30,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
     return {
       props: { posts },
     };
-  } catch {
+  } catch (error) {
     return {
       props: { posts: [] },
     };

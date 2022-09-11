@@ -1,27 +1,23 @@
 import { PostWithContent } from '@interfaces/post';
 import { local } from '@utils/fetch';
-import posts from 'data/configs/post.json';
+import { parsePost } from '@utils/parser';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-type Response = PostWithContent | { message: string };
-
+/**
+ * 특정 Post를 가져옵니다.
+ */
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Response>,
+  res: NextApiResponse,
 ) {
   const { id } = req.query;
 
-  const post = posts.find((post) => post.id === id);
-
-  if (!post) {
-    return res.status(404).json({ message: 'Post not found' });
-  }
-
   try {
-    const content = await local(`/data/posts/${post.id}/content.md`);
+    const rawPost = await local(`/posts/${id}/content.md`);
+    const post: PostWithContent = parsePost(rawPost);
 
-    res.status(200).json({ ...post, content });
-  } catch {
-    res.status(404).json({ message: 'Post not found' });
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(404).send(error);
   }
 }

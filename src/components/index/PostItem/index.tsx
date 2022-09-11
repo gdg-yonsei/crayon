@@ -1,5 +1,6 @@
 import Anchor from '@components/common/Anchor';
 import { Post } from '@interfaces/post';
+import { parseDate } from '@utils/parser';
 import { ComponentType } from 'react';
 import styled from 'styled-components';
 
@@ -11,9 +12,9 @@ const PostItem: ComponentType<Props> = ({ id, title, date, tags }) => {
     <Anchor href={`/post/${id}`} block>
       <Wrapper>
         <Title>{title}</Title>
-        <Meta>{date}</Meta>
+        <Meta>{parseDate(date)}</Meta>
         <TagContainer>
-          {tags.map((tag) => (
+          {tags?.map((tag) => (
             <Tag key={tag}>#{tag}</Tag>
           ))}
         </TagContainer>

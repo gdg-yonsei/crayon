@@ -3,6 +3,7 @@ import useVisibility from '@hooks/useVisibility';
 import { PostWithContent } from '@interfaces/post';
 import { gradientFlow } from '@styles/keyframes';
 import { get } from '@utils/fetch';
+import { parseDate } from '@utils/parser';
 import type { GetServerSideProps, NextPage } from 'next';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
@@ -20,9 +21,9 @@ const PostPage: NextPage<Props> = ({ title, date, tags, content }) => {
       <Header $trasparent={!isHeaderVisible}>
         <HeaderContainer ref={ref}>
           <Title>{title}</Title>
-          <Date>{date}</Date>
+          <Date>{parseDate(date)}</Date>
           <TagContainer>
-            {tags.map((tag, index) => (
+            {tags?.map((tag, index) => (
               <Tag key={index}># {tag}</Tag>
             ))}
           </TagContainer>
