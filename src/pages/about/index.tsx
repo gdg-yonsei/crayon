@@ -1,6 +1,5 @@
 import Template from '@components/common/Template';
 import mdComponents from '@data/mdComponents';
-import { PostWithContent } from '@interfaces/post';
 import { get } from '@utils/fetch';
 import type { GetServerSideProps, NextPage } from 'next';
 import ReactMarkdown from 'react-markdown';
@@ -8,10 +7,10 @@ import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 
 interface Props {
-  post: PostWithContent;
+  content: string;
 }
 
-const AboutPage: NextPage<Props> = ({ post: { content } }) => {
+const AboutPage: NextPage<Props> = ({ content }) => {
   return (
     <Template>
       <ReactMarkdown
@@ -29,10 +28,10 @@ export default AboutPage;
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   try {
-    const post = await get<PostWithContent>('/posts/_about');
+    const content = await get<string>('/about');
 
     return {
-      props: { post },
+      props: { content },
     };
   } catch {
     return {

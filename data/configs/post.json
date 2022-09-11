@@ -1,12 +1,5 @@
 [
   {
-    "title": "About",
-    "id": "_about",
-    "date": "2000-05-08",
-    "category": "About",
-    "tags": []
-  },
-  {
     "title": "Sample Post 1",
     "id": "sample-post-1",
     "date": "2022-08-30",
