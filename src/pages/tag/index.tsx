@@ -5,16 +5,16 @@ import type { GetServerSideProps, NextPage } from 'next';
 import styled from 'styled-components';
 
 interface Props {
-  categories: string[];
+  tags: string[];
 }
 
-const CategoryPage: NextPage<Props> = ({ categories }) => {
+const TagPage: NextPage<Props> = ({ tags }) => {
   return (
     <Template>
       <Wrapper>
-        {categories.map((category) => (
-          <LabelItem key={category} url={`/?category=${category}`}>
-            {category}
+        {tags.map((tag) => (
+          <LabelItem key={tag} url={`/?tag=${tag}`}>
+            {tag}
           </LabelItem>
         ))}
       </Wrapper>
@@ -22,14 +22,14 @@ const CategoryPage: NextPage<Props> = ({ categories }) => {
   );
 };
 
-export default CategoryPage;
+export default TagPage;
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   try {
-    const categories = await get<string[]>('/categories');
+    const tags = await get<string[]>('/tags');
 
     return {
-      props: { categories },
+      props: { tags },
     };
   } catch {
     return {

@@ -1,4 +1,4 @@
-import { aboutUrl, categoryUrl, indexUrl } from '@data/urls';
+import { aboutUrl, categoryUrl, indexUrl, tagUrl } from '@data/urls';
 import { desktopBreakpoint, tabletBreakpoint } from '@styles/layouts';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
@@ -18,6 +18,9 @@ const Navigation = () => {
       </Text>
       <Text href={categoryUrl} $active={currentPage === categoryUrl}>
         Categories
+      </Text>
+      <Text href={tagUrl} $active={currentPage === tagUrl}>
+        Tags
       </Text>
     </Wrapper>
   );

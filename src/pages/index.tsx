@@ -23,9 +23,17 @@ const IndexPage: NextPage<Props> = ({ posts }) => {
 
 export default IndexPage;
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async (
+  context,
+) => {
+  const { category, tag } = context.query as Record<string, string>;
+  const filter = {
+    ...(category && { category }),
+    ...(tag && { tag }),
+  };
+
   try {
-    const posts = await get<Post[]>('/posts');
+    const posts = await get<Post[]>('/posts', filter);
 
     return {
       props: { posts },
