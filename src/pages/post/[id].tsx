@@ -2,6 +2,7 @@ import mdComponents from '@data/mdComponents';
 import useVisibility from '@hooks/useVisibility';
 import { PostWithContent } from '@interfaces/post';
 import { gradientFlow } from '@styles/keyframes';
+import { content, tabletBreakpoint } from '@styles/layouts';
 import { get } from '@utils/fetch';
 import { parseDate } from '@utils/parser';
 import type { GetServerSideProps, NextPage } from 'next';
@@ -110,7 +111,7 @@ const HeaderContainer = styled.div`
   align-items: flex-start;
 
   width: 100%;
-  max-width: 800px;
+  ${content}
 
   z-index: 1;
 
@@ -130,8 +131,6 @@ const Date = styled.p`
 `;
 
 const TagContainer = styled.div`
-  color: white;
-
   > :not(:first-child) {
     margin-left: 10px;
   }
@@ -139,6 +138,7 @@ const TagContainer = styled.div`
 
 const Tag = styled.span`
   font-size: 17px;
+  color: white;
 `;
 
 const MiniHeader = styled.p<{ $show: boolean }>`
@@ -148,9 +148,9 @@ const MiniHeader = styled.p<{ $show: boolean }>`
   padding: 0 20px;
 
   font-size: 20px;
+  line-height: 80px;
   color: black;
   text-align: center;
-  line-height: 80px;
 
   ${({ $show }) =>
     $show &&
@@ -161,8 +161,12 @@ const MiniHeader = styled.p<{ $show: boolean }>`
 `;
 
 const Content = styled.div`
-  max-width: 800px;
-  min-height: calc(100vh - 110px);
-  margin: 0 auto;
-  padding: 50px 20px;
+  ${content}
+
+  min-height: calc(100vh - 80px);
+  padding: 50px 20px !important;
+
+  ${tabletBreakpoint} {
+    padding: 50px !important;
+  }
 `;
