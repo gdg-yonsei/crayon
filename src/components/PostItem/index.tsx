@@ -1,4 +1,4 @@
-import Anchor from '@components/common/Anchor';
+import Anchor from '@components/Anchor';
 import { Post } from '@interfaces/post';
 import { parseDate } from '@utils/parser';
 import { ComponentType } from 'react';

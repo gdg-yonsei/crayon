@@ -1,4 +1,4 @@
-import Template from '@components/common/Template';
+import Template from '@components/Template';
 import { get } from '@utils/fetch';
 import type { GetServerSideProps, NextPage } from 'next';
 

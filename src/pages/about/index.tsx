@@ -1,4 +1,4 @@
-import Template from '@components/common/Template';
+import Template from '@components/Template';
 import mdComponents from '@data/mdComponents';
 import { PostWithContent } from '@interfaces/post';
 import { get } from '@utils/fetch';

@@ -1,5 +1,5 @@
-import Template from '@components/common/Template';
-import PostItem from '@components/index/PostItem';
+import PostItem from '@components/PostItem';
+import Template from '@components/Template';
 import { Post } from '@interfaces/post';
 import { get } from '@utils/fetch';
 import type { GetServerSideProps, NextPage } from 'next';

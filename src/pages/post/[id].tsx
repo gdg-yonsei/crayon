@@ -10,10 +10,13 @@ import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import styled, { css } from 'styled-components';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface Props extends PostWithContent {}
+interface Props {
+  post: PostWithContent;
+}
 
-const PostPage: NextPage<Props> = ({ title, date, tags, content }) => {
+const PostPage: NextPage<Props> = ({
+  post: { title, date, tags, content },
+}) => {
   const { ref, isVisible: isHeaderVisible } = useVisibility(true, 0);
 
   return (
@@ -54,7 +57,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
     const post = await get<PostWithContent>(`/posts/${id}`);
 
     return {
-      props: post,
+      props: {
+        post,
+      },
     };
   } catch {
     return {
