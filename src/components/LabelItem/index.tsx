@@ -30,21 +30,36 @@ const Wrapper = styled.div`
   width: 200px;
   height: 200px;
   padding: 20px;
-  overflow: hidden;
 
   --shadow-color: #eeeeee;
   background-color: white;
   box-shadow: 0 0 20px var(--shadow-color);
 
-  > p {
-    transition: box-shadow ease 0.3s, transform ease 0.3s;
+  transition: box-shadow ease 0.3s, transform ease 0.3s;
+
+  ::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: linear-gradient(45deg, #0091ff, #00a555);
+    opacity: 0;
+    transition: opacity ease 0.3s;
   }
 
   :hover {
     --shadow-color: lightgray;
 
+    transform: skew(-2deg, -2deg);
+
     > p {
-      transform: scale(1.1);
+      color: white;
+    }
+
+    ::after {
+      opacity: 1;
     }
   }
 `;
