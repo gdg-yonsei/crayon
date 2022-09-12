@@ -20,6 +20,9 @@ const mdComponents = (postId: string): Partial<MarkdownComponents> => {
     h2: ({ children, ...props }: any) => {
       return <Heading2 {...props}>{children}</Heading2>;
     },
+    h3: ({ children, ...props }: any) => {
+      return <Heading3 {...props}>{children}</Heading3>;
+    },
     p: ({ children, ...props }: any) => {
       return <Paragraph {...props}>{children}</Paragraph>;
     },
@@ -34,6 +37,9 @@ const mdComponents = (postId: string): Partial<MarkdownComponents> => {
     },
     img: ({ alt, ...props }: any) => {
       return <Image postId={postId} alt={alt} {...props} />;
+    },
+    table: (props: any) => {
+      return <Table {...props} />;
     },
     code: ({ inline, className, children, ...props }: any) => {
       const match = /language-(\w+)/.exec(className || '');
@@ -56,32 +62,21 @@ const mdComponents = (postId: string): Partial<MarkdownComponents> => {
 export default mdComponents;
 
 const Heading1 = styled.h1`
-  position: relative;
   margin: 40px 0;
 
   font-size: 2rem;
-
-  ::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -15px;
-    width: 4px;
-    height: 100%;
-    background-color: lightblue;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  :hover::after {
-    opacity: 1;
-  }
 `;
 
 const Heading2 = styled.h2`
   margin: 30px 0;
 
   font-size: 1.5rem;
+`;
+
+const Heading3 = styled.h3`
+  margin: 20px 0;
+
+  font-size: 1.2rem;
 `;
 
 const Paragraph = styled.p`
@@ -92,27 +87,75 @@ const Paragraph = styled.p`
 `;
 
 const Blockquote = styled.blockquote`
-  margin: 20px 0;
+  margin: 30px 0;
 
-  border-left: 3px solid black;
+  border-left: 5px solid black;
+
+  transition: border-left ease 0.3s;
 
   > p {
     padding: 15px;
+  }
+
+  :hover {
+    border-left: 10px solid #0091ff;
   }
 `;
 
 const Emphasize = styled.em`
   font-weight: 700;
-  color: hsla(217, 100%, 60%);
+  color: #0091ff;
 `;
 
 const Anchor = styled.a`
   text-decoration: none;
-  color: hsla(217, 100%, 60%);
+  color: #0091ff;
   transition: color 0.3s ease;
 
   &:hover {
-    color: hsla(217, 100%, 30%);
+    color: #005697;
+  }
+`;
+
+const Table = styled.table`
+  margin: 0 auto;
+  border-collapse: collapse;
+
+  background-color: white;
+  box-shadow: 0 0 10px lightgray;
+
+  th,
+  td {
+    padding: 10px 15px;
+
+    :not(:first-child) {
+      border-left: 1px solid #00000020;
+    }
+  }
+
+  th {
+    background: #00000020;
+  }
+
+  td {
+    position: relative;
+
+    ::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      background-color: #00000010;
+      opacity: 0;
+      transition: opacity ease 0.3s;
+    }
+
+    :hover::after {
+      opacity: 1;
+    }
   }
 `;
 

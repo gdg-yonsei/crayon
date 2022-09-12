@@ -9,45 +9,27 @@ tags:
 
 이 게시물은 **테스트 게시물**입니다.
 
-# 부제목1
+# 텍스트
+
+## 예시1
 
 테스트 게시물입니다.  
 테스트 게시물입니다.  
 테스트 게시물입니다.
 
-## 상세1
-
-테스트 게시물입니다.  
-테스트 게시물입니다.  
-테스트 게시물입니다.
-
-## 상세2
-
-테스트 게시물입니다.  
-테스트 게시물입니다.  
-테스트 게시물입니다.
-
-## 상세3
-
-테스트 게시물입니다.  
-테스트 게시물입니다.  
-테스트 게시물입니다.
-
-# 부제목2
+## 예시2
 
 테스트 게시물입니다.  
 ~테스트 게시물입니다.~  
 _테스트 게시물입니다._
 
-![한강](road.jpg)
+## 예시3
 
-![구글 로고](https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png)
-
-<img src="hamburger.jpg" alt="햄버거" width="40%"/>
-
-# 부제목3
+### 인용문
 
 > 인용문
+
+### 목록
 
 1. 첫번째 내용
 
@@ -56,15 +38,25 @@ _테스트 게시물입니다._
 2. 두번째 내용
 3. 세번째 내용
 
-# 참조
-
-https://www.naver.com/
-
-[Naver](https://www.naver.com/)
+### 표
 
 |  Table1  |  Table2  |
 | :------: | :------: |
 | Content1 | Content2 |
+
+# 사진
+
+![한강](road.jpg)
+
+![구글 로고](https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png)
+
+<img src="hamburger.jpg" alt="햄버거" width="40%"/>
+
+# 링크
+
+https://www.google.com/
+
+[Google](https://www.google.com/)
 
 # 코드
 

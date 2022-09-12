@@ -11,11 +11,11 @@ interface Props {
   post: PostWithContent;
 }
 
-const AboutPage: NextPage<Props> = ({ post: { content } }) => {
+const AboutPage: NextPage<Props> = ({ post: { id, content } }) => {
   return (
     <Template>
       <ReactMarkdown
-        components={mdComponents}
+        components={mdComponents(id)}
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw]}
       >
