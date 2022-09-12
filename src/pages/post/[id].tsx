@@ -16,7 +16,7 @@ interface Props {
 }
 
 const PostPage: NextPage<Props> = ({
-  post: { title, date, tags, content },
+  post: { id, title, date, tags, content },
 }) => {
   const { ref, isVisible: isHeaderVisible } = useVisibility(true, 0);
 
@@ -36,7 +36,7 @@ const PostPage: NextPage<Props> = ({
       </Header>
       <Content>
         <ReactMarkdown
-          components={mdComponents}
+          components={mdComponents(id)}
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
         >

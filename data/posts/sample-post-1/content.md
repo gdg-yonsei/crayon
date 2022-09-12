@@ -39,6 +39,12 @@ tags:
 ~테스트 게시물입니다.~  
 _테스트 게시물입니다._
 
+![한강](road.jpg)
+
+![구글 로고](https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png)
+
+<img src="hamburger.jpg" alt="햄버거" width="40%"/>
+
 # 부제목3
 
 > 인용문

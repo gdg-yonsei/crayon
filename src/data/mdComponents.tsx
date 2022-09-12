@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import Image from '@components/Image';
 import { SpecialComponents } from 'react-markdown/lib/ast-to-react';
 import { NormalComponents } from 'react-markdown/lib/complex-types';
 import { Prism as Code } from 'react-syntax-highlighter';
@@ -7,44 +8,49 @@ import styled from 'styled-components';
 
 type MarkdownComponents = NormalComponents & SpecialComponents;
 
-const mdComponents: Partial<MarkdownComponents> = {
-  h1: ({ children, ...props }: any) => {
-    return (
-      <Heading1 {...props} id={children.toString()}>
-        {children}
-      </Heading1>
-    );
-  },
-  h2: ({ children, ...props }: any) => {
-    return <Heading2 {...props}>{children}</Heading2>;
-  },
-  p: ({ children, ...props }: any) => {
-    return <Paragraph {...props}>{children}</Paragraph>;
-  },
-  blockquote: ({ children, ...props }: any) => {
-    return <Blockquote {...props}>{children}</Blockquote>;
-  },
-  em: ({ children, ...props }: any) => {
-    return <Emphasize {...props}>{children}</Emphasize>;
-  },
-  a: ({ children, ...props }: any) => {
-    return <Anchor {...props}>{children}</Anchor>;
-  },
-  code: ({ inline, className, children, ...props }: any) => {
-    const match = /language-(\w+)/.exec(className || '');
-    return !inline && match ? (
-      <Code style={materialDark} language={match[1]} {...props}>
-        {String(children).replace(/\n$/, '')}
-      </Code>
-    ) : (
-      <code className={className} {...props}>
-        {children}
-      </code>
-    );
-  },
-  hr: (props: any) => {
-    return <Line {...props} />;
-  },
+const mdComponents = (postId: string): Partial<MarkdownComponents> => {
+  return {
+    h1: ({ children, ...props }: any) => {
+      return (
+        <Heading1 {...props} id={children.toString()}>
+          {children}
+        </Heading1>
+      );
+    },
+    h2: ({ children, ...props }: any) => {
+      return <Heading2 {...props}>{children}</Heading2>;
+    },
+    p: ({ children, ...props }: any) => {
+      return <Paragraph {...props}>{children}</Paragraph>;
+    },
+    blockquote: ({ children, ...props }: any) => {
+      return <Blockquote {...props}>{children}</Blockquote>;
+    },
+    em: ({ children, ...props }: any) => {
+      return <Emphasize {...props}>{children}</Emphasize>;
+    },
+    a: ({ children, ...props }: any) => {
+      return <Anchor {...props}>{children}</Anchor>;
+    },
+    img: ({ alt, ...props }: any) => {
+      return <Image postId={postId} alt={alt} {...props} />;
+    },
+    code: ({ inline, className, children, ...props }: any) => {
+      const match = /language-(\w+)/.exec(className || '');
+      return !inline && match ? (
+        <Code style={materialDark} language={match[1]} {...props}>
+          {String(children).replace(/\n$/, '')}
+        </Code>
+      ) : (
+        <code className={className} {...props}>
+          {children}
+        </code>
+      );
+    },
+    hr: (props: any) => {
+      return <Line {...props} />;
+    },
+  };
 };
 
 export default mdComponents;

@@ -9,3 +9,5 @@ export interface Post {
 export interface PostWithContent extends Post {
   content: string;
 }
+
+export type PostMetadata = Omit<Post, 'id'>;

@@ -2,10 +2,13 @@ import { Post } from '@interfaces/post';
 import { local } from '@utils/fetch';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+/**
+ * 전체 카테고리 목록을 가져옵니다.
+ */
 export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   try {
-    const rawPostList = await local('/configs/post.json');
-    const postList: Post[] = JSON.parse(rawPostList);
+    const rawPostList = await local('/configs/post.json', 'utf8');
+    const postList: Post[] = JSON.parse(rawPostList as string);
 
     const categories: string[] = [
       ...new Set(

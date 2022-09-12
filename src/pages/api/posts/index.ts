@@ -12,8 +12,8 @@ export default async function handler(
   const { category, tag } = req.query as Record<string, string>;
 
   try {
-    const rawPostList = await local('/configs/post.json');
-    let postList: Post[] = JSON.parse(rawPostList);
+    const rawPostList = await local('/configs/post.json', 'utf8');
+    let postList: Post[] = JSON.parse(rawPostList as string);
 
     if (category) {
       postList = postList.filter((post) => post.category === category);

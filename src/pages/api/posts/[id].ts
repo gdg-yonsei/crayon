@@ -10,11 +10,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const { id } = req.query;
+  const { id } = req.query as Record<string, string>;
 
   try {
-    const rawPost = await local(`/posts/${id}/content.md`);
-    const post: PostWithContent = parsePost(rawPost);
+    const rawPost = await local(`/posts/${id}/content.md`, 'utf8');
+    const post: PostWithContent = { id, ...parsePost(rawPost as string) };
 
     res.status(200).json(post);
   } catch (error) {
