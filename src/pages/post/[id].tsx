@@ -186,7 +186,7 @@ const MiniHeader = styled.p<{ $show: boolean }>`
 const Content = styled.div`
   ${content}
 
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px - 140px);
   padding: 50px 20px !important;
 
   ${tabletBreakpoint} {
@@ -198,7 +198,7 @@ const Footer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 20px;
+  height: 140px;
 `;
 
 const Home = styled.a`
