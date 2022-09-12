@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node scripts/initializePostConfig.js && next dev",
+    "build": "node scripts/initializePostConfig.js && next build",
     "start": "next start",
     "lint": "next lint",
     "initialize": "node scripts/initializePostConfig.js"
