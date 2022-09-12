@@ -1,4 +1,5 @@
 import Comment from '@components/Comment';
+import { useConfig } from '@contexts/ConfigContext';
 import mdComponents from '@data/mdComponents';
 import useVisibility from '@hooks/useVisibility';
 import { PostWithContent } from '@interfaces/post';
@@ -14,11 +15,14 @@ import styled, { css } from 'styled-components';
 
 interface Props {
   post: PostWithContent;
+  readonly: boolean;
 }
 
 const PostPage: NextPage<Props> = ({
   post: { id, title, date, category, tags, content },
+  readonly,
 }) => {
+  const { name } = useConfig();
   const { ref, isVisible: isHeaderVisible } = useVisibility(true, 0);
 
   return (
@@ -44,8 +48,13 @@ const PostPage: NextPage<Props> = ({
         >
           {content}
         </ReactMarkdown>
-        <Comment />
+        {readonly || <Comment />}
       </Content>
+      {readonly || (
+        <Footer>
+          <Home href="/">{name}</Home>
+        </Footer>
+      )}
     </Wrapper>
   );
 };
@@ -56,6 +65,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
   context,
 ) => {
   const { id } = context.params as Record<string, string>;
+  const { mode } = context.query as Record<string, string>;
 
   try {
     const post = await get<PostWithContent>(`/posts/${id}`);
@@ -63,6 +73,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
     return {
       props: {
         post,
+        readonly: mode === 'readonly',
       },
     };
   } catch {
@@ -181,4 +192,23 @@ const Content = styled.div`
   ${tabletBreakpoint} {
     padding: 50px !important;
   }
+`;
+
+const Footer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+`;
+
+const Home = styled.a`
+  text-decoration: none;
+
+  background: linear-gradient(45deg, #0091ff, #00a555);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-size: 30px;
+  font-weight: 700;
 `;
