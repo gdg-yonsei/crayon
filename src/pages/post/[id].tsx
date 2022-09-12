@@ -16,7 +16,7 @@ interface Props {
 }
 
 const PostPage: NextPage<Props> = ({
-  post: { id, title, date, tags, content },
+  post: { id, title, date, category, tags, content },
 }) => {
   const { ref, isVisible: isHeaderVisible } = useVisibility(true, 0);
 
@@ -24,13 +24,14 @@ const PostPage: NextPage<Props> = ({
     <Wrapper>
       <Header $trasparent={!isHeaderVisible}>
         <HeaderContainer ref={ref}>
-          <Title>{title}</Title>
-          <Date>{parseDate(date)}</Date>
           <TagContainer>
             {tags?.map((tag, index) => (
               <Tag key={index}># {tag}</Tag>
             ))}
           </TagContainer>
+          <Title>{title}</Title>
+          {!!category && <Category>{category}</Category>}
+          <Date>{parseDate(date)}</Date>
         </HeaderContainer>
         <MiniHeader $show={!isHeaderVisible}>{title}</MiniHeader>
       </Header>
@@ -78,7 +79,6 @@ const Header = styled.div<{ $trasparent: boolean }>`
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
 
   z-index: 10;
@@ -106,9 +106,9 @@ const Header = styled.div<{ $trasparent: boolean }>`
 `;
 
 const HeaderContainer = styled.div`
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 
   width: 100%;
   ${content}
@@ -125,20 +125,30 @@ const Title = styled.h1`
   color: white;
 `;
 
+const Category = styled.p`
+  font-size: 20px;
+  color: white;
+`;
+
 const Date = styled.p`
   font-size: 20px;
   color: white;
 `;
 
 const TagContainer = styled.div`
+  flex: 1 1 0;
+  padding-top: 50px;
+
   > :not(:first-child) {
-    margin-left: 10px;
+    margin-top: 20px;
   }
 `;
 
 const Tag = styled.span`
-  font-size: 17px;
-  color: white;
+  display: block;
+  font-size: 40px;
+  color: #ffffff50;
+  text-align: end;
 `;
 
 const MiniHeader = styled.p<{ $show: boolean }>`

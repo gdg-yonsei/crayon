@@ -7,17 +7,26 @@ import styled from 'styled-components';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Props extends Post {}
 
-const PostItem: ComponentType<Props> = ({ id, title, date, tags }) => {
+const PostItem: ComponentType<Props> = ({
+  id,
+  title,
+  date,
+  category,
+  tags,
+}) => {
   return (
     <Anchor href={`/post/${id}`} block>
       <Wrapper>
         <Title>{title}</Title>
-        <Meta>{parseDate(date)}</Meta>
-        <TagContainer>
-          {tags?.map((tag) => (
-            <Tag key={tag}>#{tag}</Tag>
-          ))}
-        </TagContainer>
+        {!!category && <Category>{category}</Category>}
+        <Date>{parseDate(date)}</Date>
+        {!!tags && (
+          <TagContainer>
+            {tags.map((tag) => (
+              <Tag key={tag}>#{tag}</Tag>
+            ))}
+          </TagContainer>
+        )}
       </Wrapper>
     </Anchor>
   );
@@ -44,8 +53,15 @@ const Title = styled.p`
   color: black;
 `;
 
-const Meta = styled.p`
-  margin-top: 4px;
+const Category = styled.p`
+  margin-top: 8px;
+
+  font-size: 12px;
+  color: black;
+`;
+
+const Date = styled.p`
+  margin-top: 8px;
 
   font-size: 12px;
   color: gray;
@@ -55,7 +71,7 @@ const TagContainer = styled.div`
   margin-top: 16px;
 
   > :not(:first-child) {
-    margin-left: 4px;
+    margin-left: 8px;
   }
 `;
 
