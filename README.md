@@ -44,8 +44,8 @@ A powerful blog generator
 - You ONLY need to modify `/data/configs` folder on root for your blog configuration.
 
 ```
-site.json
-post.json (auto-generated)
+ㄴ site.json
+ㄴ post.json (auto-generated)
 ```
 
 - After running your first crayon blog on local, there will be two json files.
@@ -69,17 +69,17 @@ post.json (auto-generated)
 
 ```
 _about
-  /content.md
+  ㄴ /content.md
 
 foo-post
-  /content.md
-  /apple.png
-  /banana.png
-  /...
+  ㄴ /content.md
+  ㄴ /apple.png
+  ㄴ /banana.png
+  ㄴ /...
 
 bar-post
-  /content.md
-  /...
+  ㄴ /content.md
+  ㄴ /...
 
 ...
 ```
