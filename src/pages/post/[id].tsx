@@ -1,3 +1,4 @@
+import Comment from '@components/Comment';
 import mdComponents from '@data/mdComponents';
 import useVisibility from '@hooks/useVisibility';
 import { PostWithContent } from '@interfaces/post';
@@ -43,6 +44,7 @@ const PostPage: NextPage<Props> = ({
         >
           {content}
         </ReactMarkdown>
+        <Comment />
       </Content>
     </Wrapper>
   );

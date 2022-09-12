@@ -6,20 +6,23 @@ import { createContext, PropsWithChildren, useContext } from 'react';
  */
 interface ConfigContext {
   name: string;
+  url: string;
+  port: number;
+  commentRepo?: string;
 }
 
 const ConfigContext = createContext<ConfigContext>({
   name: '',
+  url: '',
+  port: 0,
 });
 
 /**
  * Provider
  */
 export const ConfigProvider = ({ children }: PropsWithChildren) => {
-  const { name } = config;
-
   return (
-    <ConfigContext.Provider value={{ name }}>{children}</ConfigContext.Provider>
+    <ConfigContext.Provider value={config}>{children}</ConfigContext.Provider>
   );
 };
 
