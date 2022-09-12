@@ -20,13 +20,7 @@ const Image: ComponentType<Props> = ({ postId, width, alt, ...props }) => {
 
   return (
     <Wrapper $width={width}>
-      <NextImage
-        {...props}
-        loader={loader}
-        layout="fill"
-        className="responsive-image"
-        alt={alt}
-      />
+      <NextImage {...props} loader={loader} layout="fill" alt={alt} />
       <Caption>{alt}</Caption>
     </Wrapper>
   );
@@ -39,10 +33,17 @@ const Wrapper = styled.span<{ $width?: string }>`
   width: ${({ $width }) => $width ?? '80%'};
   margin: 40px auto;
 
-  & > span {
+  > span:first-of-type {
     position: unset !important;
 
-    & .responsive-image {
+    transition: transform ease 0.3s, box-shadow ease 0.3s;
+
+    :hover {
+      transform: scale(1.01);
+      box-shadow: 0 0 20px lightgray;
+    }
+
+    img {
       object-fit: contain !important;
       position: relative !important;
       height: auto !important;
