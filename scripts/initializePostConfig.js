@@ -65,7 +65,7 @@ function generatePostConfig() {
 try {
   const postConfig = JSON.stringify(generatePostConfig());
 
-  writeFile(getDataPath('/configs/post.json'), postConfig);
+  writeFile(getDataPath('/configs/_post.json'), postConfig);
 
   console.info(chalk.blue('Successfully post config initialized'));
 } catch (error) {

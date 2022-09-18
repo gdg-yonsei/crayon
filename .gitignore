@@ -37,3 +37,6 @@ next-env.d.ts
 
 # editor
 .vscode
+
+# generated post condig
+/data/configs/_post.json

@@ -12,7 +12,7 @@ export default async function handler(
   const { category, tag } = req.query as Record<string, string>;
 
   try {
-    const rawPostList = await local('/configs/post.json', 'utf8');
+    const rawPostList = await local('/configs/_post.json', 'utf8');
     let postList: Post[] = JSON.parse(rawPostList as string);
 
     if (category) {

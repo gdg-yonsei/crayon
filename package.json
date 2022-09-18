@@ -1,13 +1,13 @@
 {
   "name": "crayon",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node scripts/initializePostConfig.js && next dev",
-    "build": "node scripts/initializePostConfig.js && next build",
-    "start": "next start",
-    "lint": "next lint",
-    "initialize": "node scripts/initializePostConfig.js"
+    "initialize": "node scripts/initializePostConfig.js",
+    "dev": "yarn initialize && next dev",
+    "build": "yarn initialize && next build",
+    "start": "yarn initialize && next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

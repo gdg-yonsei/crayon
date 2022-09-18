@@ -7,7 +7,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
  */
 export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   try {
-    const rawPostList = await local('/configs/post.json', 'utf8');
+    const rawPostList = await local('/configs/_post.json', 'utf8');
     const postList: Post[] = JSON.parse(rawPostList as string);
 
     const tags: string[] = [
