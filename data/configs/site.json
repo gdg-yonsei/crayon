@@ -1,6 +1,6 @@
 {
   "name": "Sample Blog",
-  "url": "http://sample-blog.com/",
-  "port": 3000,
+  "domain": "",
+  "apiDomain": "",
   "commentRepo": "gdsc-ys/crayon-comment-demo"
 }

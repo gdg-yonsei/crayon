@@ -1,4 +1,4 @@
-import { aboutUrl, categoryUrl, indexUrl, tagUrl } from '@data/urls';
+import { aboutUrl, categoryUrl, indexUrl, tagUrl } from '@data/constants';
 import { desktopBreakpoint, tabletBreakpoint } from '@styles/layouts';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';

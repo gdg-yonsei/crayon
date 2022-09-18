@@ -1,19 +1,17 @@
-import { useConfig } from '@contexts/ConfigContext';
+import { BLOG_NAME, DOMAIN } from '@data/constants';
 import { DefaultSeo } from 'next-seo';
 import { ComponentType } from 'react';
 
 const SEO: ComponentType = () => {
-  const { name, url } = useConfig();
-
   return (
     <DefaultSeo
-      title={name}
-      description={name}
+      title={BLOG_NAME}
+      description={BLOG_NAME}
       openGraph={{
         type: 'website',
-        url,
-        title: name,
-        description: name,
+        url: DOMAIN,
+        title: BLOG_NAME,
+        description: BLOG_NAME,
       }}
     />
   );

@@ -1,18 +1,17 @@
 import Navigation from '@components/Navigation';
-import { useConfig } from '@contexts/ConfigContext';
+import { BLOG_NAME } from '@data/constants';
 import useVisibility from '@hooks/useVisibility';
 import { content, desktopBreakpoint, tabletBreakpoint } from '@styles/layouts';
 import { ComponentType, PropsWithChildren } from 'react';
 import styled, { css } from 'styled-components';
 
 const Template: ComponentType<PropsWithChildren> = ({ children }) => {
-  const { name } = useConfig();
   const { ref, isVisible: isTop } = useVisibility(true, 1);
 
   return (
     <Wrapper>
       <Header $blur={!isTop}>
-        <Title>{name}</Title>
+        <Title>{BLOG_NAME}</Title>
         <Navigation />
       </Header>
       <div ref={ref} />

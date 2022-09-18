@@ -1,5 +1,5 @@
 import Comment from '@components/Comment';
-import { useConfig } from '@contexts/ConfigContext';
+import { BLOG_NAME } from '@data/constants';
 import mdComponents from '@data/mdComponents';
 import useVisibility from '@hooks/useVisibility';
 import { PostWithContent } from '@interfaces/post';
@@ -22,7 +22,6 @@ const PostPage: NextPage<Props> = ({
   post: { id, title, date, category, tags, content },
   readonly,
 }) => {
-  const { name } = useConfig();
   const { ref, isVisible: isHeaderVisible } = useVisibility(true, 0);
 
   return (
@@ -52,7 +51,7 @@ const PostPage: NextPage<Props> = ({
       </Content>
       {readonly || (
         <Footer>
-          <Home href="/">{name}</Home>
+          <Home href="/">{BLOG_NAME}</Home>
         </Footer>
       )}
     </Wrapper>

@@ -1,4 +1,4 @@
-import { LOCAL_API } from '@data/urls';
+import { API_DOMAIN } from '@data/constants';
 import NextImage, { ImageLoader, ImageProps } from 'next/image';
 import { ComponentType } from 'react';
 import styled from 'styled-components';
@@ -15,7 +15,7 @@ const Image: ComponentType<Props> = ({ postId, width, alt, ...props }) => {
       return src;
     }
 
-    return `${LOCAL_API}/image?postId=${postId}&source=${src}`;
+    return `${API_DOMAIN}/image?postId=${postId}&source=${src}`;
   };
 
   return (

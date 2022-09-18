@@ -1,4 +1,4 @@
-import { LOCAL_API } from '@data/urls';
+import { API_DOMAIN } from '@data/constants';
 import { promises as fs } from 'fs';
 import path from 'path';
 
@@ -11,7 +11,7 @@ export const get = async <T>(
   query?: Record<string, string>,
 ): Promise<T> => {
   const params = new URLSearchParams(query).toString();
-  const endpoint = LOCAL_API + url + (query ? `?${params}` : '');
+  const endpoint = API_DOMAIN + url + (query ? `?${params}` : '');
 
   const response = await fetch(endpoint, {
     method: 'GET',
