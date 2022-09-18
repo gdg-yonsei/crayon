@@ -1,14 +1,10 @@
 ---
 title: About
-date: 2022-08-30
+date: 2022-09-19
 ---
 
-# Sample Title
+# All about you
 
-## Sample Subtitle 1
+---
 
-- Sample text
-
-## Sample Subtitle 2
-
-- Sample text
+- Show yourself!

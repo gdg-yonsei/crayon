@@ -1,82 +1,79 @@
 ---
 title: Sample Post 1
-date: 2022-08-30
-category: Sample Category 1
+date: 2022-09-19
+category: Category A
 tags:
-  - Sample Tag 1
-  - Sample Tag 2
+  - Tag A
+  - Tag B
 ---
 
-이 게시물은 **테스트 게시물**입니다.
+This is a **sample post**.
 
-# 텍스트
+# Text
 
-## 예시1
+---
 
-테스트 게시물입니다.  
-테스트 게시물입니다.  
-테스트 게시물입니다.
+## Paragraph
 
-## 예시2
+This is a paragraph.  
+~This is a paragraph with strikeout.~  
+_This is an emphasized paragraph._
 
-테스트 게시물입니다.  
-~테스트 게시물입니다.~  
-_테스트 게시물입니다._
+## Quote
 
-## 예시3
+> Welcome to crayon
 
-### 인용문
+## Lists
 
-> 인용문
+1. First list
 
-### 목록
+   - First sublist
+   - Second sublist
 
-1. 첫번째 내용
+2. Second list
+3. Third list
 
-   세부 사항
+# Table
 
-2. 두번째 내용
-3. 세번째 내용
-
-### 표
+---
 
 |  Table1  |  Table2  |
 | :------: | :------: |
 | Content1 | Content2 |
 
-# 사진
+# Images
 
-![한강](road.jpg)
+---
 
-![구글 로고](https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png)
+![Han river](road.jpg)
 
-<img src="hamburger.jpg" alt="햄버거" width="40%"/>
+<img src="hamburger.jpg" alt="Hamburger" width="40%"/>
 
-# 링크
+# Links
+
+---
 
 https://www.google.com/
 
 [Google](https://www.google.com/)
 
-# 코드
-
-#### md
-
-```md
-예시 텍스트
-```
+# Codes
 
 ---
 
-#### 파이썬
+### Markdown
+
+```md
+Text
+```
+
+### Python
 
 ```python
 print("Hello World")
 ```
 
----
-
-#### 루비
+### Ruby
 
 ```ruby
 require 'redcarpet'
@@ -84,9 +81,7 @@ markdown = Redcarpet.new("Hello World!")
 puts markdown.to_html
 ```
 
----
-
-#### C
+### C
 
 ```c
 printf("Hello World");

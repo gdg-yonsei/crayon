@@ -1,6 +1,6 @@
 {
-  "name": "Sample Blog",
+  "name": "Crayon Blog",
   "domain": "",
   "apiDomain": "",
-  "commentRepo": "gdsc-ys/crayon-comment-demo"
+  "commentRepo": ""
 }

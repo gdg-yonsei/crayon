@@ -62,19 +62,19 @@ const mdComponents = (postId: string): Partial<MarkdownComponents> => {
 export default mdComponents;
 
 const Heading1 = styled.h1`
-  margin: 40px 0;
+  margin: 50px 0 20px;
 
   font-size: 2rem;
 `;
 
 const Heading2 = styled.h2`
-  margin: 30px 0;
+  margin: 30px 0 10px;
 
   font-size: 1.5rem;
 `;
 
 const Heading3 = styled.h3`
-  margin: 20px 0;
+  margin: 20px 0 10px;
 
   font-size: 1.2rem;
 `;

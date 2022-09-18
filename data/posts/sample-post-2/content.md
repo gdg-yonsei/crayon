@@ -1,13 +1,15 @@
 ---
 title: Sample Post 2
-date: 2022-08-30
-category: Sample Category 2
+date: 2022-09-19
+category: Category B
 tags:
-  - Sample Tag 2
-  - Sample Tag 3
+  - Tag B
+  - Tag C
 ---
 
 # Sample Title
+
+---
 
 ## Sample Subtitle 1
 
