@@ -45,6 +45,10 @@ A powerful blog generator
 - [How to post](https://github.com/gdsc-ys/crayon/blob/main/docs/how-to-post.md)
 - [How to deploy](https://github.com/gdsc-ys/crayon/blob/main/docs/how-to-deploy.md)
 
+## Examples
+
+- [Sample blog](https://crayon-sample.vercel.app/) / [Source codes](https://github.com/gdsc-ys/crayon-sample)
+
 ## Ideas & Bugs
 
 - WIP
