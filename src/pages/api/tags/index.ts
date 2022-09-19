@@ -17,7 +17,7 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
           .map((post) => post.tags)
           .flat(),
       ),
-    ];
+    ].sort();
 
     res.status(200).json(tags);
   } catch (error) {

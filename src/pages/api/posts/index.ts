@@ -15,6 +15,10 @@ export default async function handler(
     const rawPostList = await local('/configs/_post.json', 'utf8');
     let postList: Post[] = JSON.parse(rawPostList as string);
 
+    postList = postList.sort((prev, next) => {
+      return new Date(next.date).getTime() - new Date(prev.date).getTime();
+    });
+
     if (category) {
       postList = postList.filter((post) => post.category === category);
     }

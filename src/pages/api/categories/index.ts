@@ -16,7 +16,7 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
           .filter((post): post is Required<Post> => !!post.category)
           .map((post) => post.category),
       ),
-    ];
+    ].sort();
 
     res.status(200).json(categories);
   } catch (error) {
