@@ -2,9 +2,7 @@
 
 > You can deploy your crayon blog with vercel.
 
-- A blog genereated by crayon can not deployed as static files.
+- A blog genereated by crayon can not be deployed as static files.
 - This is because it supports SSR for SEO and custom api.
 
-1. Open vercel website.
-
-2. WIP
+- For details, check [the official guide](https://vercel.com/docs/concepts/git#deploying-a-git-repository) from vercel.
