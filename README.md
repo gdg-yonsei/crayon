@@ -13,11 +13,11 @@ A powerful blog generator
 - Sharing posts with read-only mode
 - Custom API for posts
 
-<img width="1792" alt="스크린샷 2022-09-12 오후 6 10 00" src="https://user-images.githubusercontent.com/11978494/189616116-1a6787eb-24f2-4572-9289-c44c269c74b7.png">
+<img width="1728" alt="post list" src="https://user-images.githubusercontent.com/11978494/191053335-f4fce6e1-b935-4879-8fc6-5f9acff43d03.png">
 
-<img width="1792" alt="스크린샷 2022-09-12 오후 6 10 36" src="https://user-images.githubusercontent.com/11978494/189616231-a4bcdee9-2b8b-4c51-8774-d1b9dbf320ef.png">
+<img width="1728" alt="post" src="https://user-images.githubusercontent.com/11978494/191053525-071138da-19a0-43a4-800e-58767229c511.png">
 
-<img width="1792" alt="스크린샷 2022-09-12 오후 6 11 14" src="https://user-images.githubusercontent.com/11978494/189616356-8887f04a-0766-4f2b-97a8-a417a327c066.png">
+<img width="1728" alt="tags" src="https://user-images.githubusercontent.com/11978494/191053843-48c01179-07cc-4460-829f-cf1aca4742a9.png">
 
 ## Guide
 
