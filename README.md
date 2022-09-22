@@ -23,7 +23,8 @@ A powerful blog generator
 
 ### How to initialize
 
-> Before you start, you should install node, npm and yarn.
+> Before you start, you should install node, npm and yarn.  
+> `node >= 16.0.0` `npm >= 7.10.0`
 
 1. Initialize your own crayon using npx.
 
